@@ -39,6 +39,7 @@ const handleLogin = async () => {
       </button>
 
       <p v-if="errorMessage" class="text-red-500 mt-4 text-center">{{ errorMessage }}</p>
+      <p class="text-gray-500 text-sm mt-4 text-center">Demo: emilys / emilyspass</p>
     </div>
   </div>
 </template>

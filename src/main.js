@@ -5,6 +5,6 @@ import router from './router'
 import { createPinia } from 'pinia'
 const app = createApp(App)
 const pinia = createPinia()
-app.use(pinia) // global state for storing users
-app.use(router)  // Activate now for different pages
-.mount('#app')
+app.use(pinia)
+app.use(router)
+app.mount('#app')

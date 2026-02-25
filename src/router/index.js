@@ -24,12 +24,15 @@ const router = createRouter({
     routes
 })
 
- router.beforeEach((to,from,next)=>{
-    const authStore = useAuthStore()
-    if(to.meta.requiresAuth && !authStore.isAuthenticated){
-        next('/login')
-    } else {
-        next()
-    }
- })
+router.beforeEach((to) => {
+  const auth = useAuthStore()
+
+  // If authenticated user visits login → redirect to dashboard
+  if (to.path === '/login' && auth.isAuthenticated) return '/dashboard'
+
+  // If not authenticated and trying to access protected routes → redirect to login
+  if (to.meta.requiresAuth && !auth.isAuthenticated) return '/login'
+
+  return true
+})
 export default router
