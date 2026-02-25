@@ -15,7 +15,7 @@ export const useAuthStore = defineStore("auth", {
           username,
           password
         });
-        // DummyJSON returns user data + accessToken directly in response (not nested)
+        // DummyJSON returns user data + accessToken directly in response
         const { accessToken, refreshToken, ...userData } = response.data;
         this.token = accessToken;
         this.user = userData;
