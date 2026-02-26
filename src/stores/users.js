@@ -9,7 +9,8 @@ export const useUsersStore = defineStore('users', {
   state: () => ({
     users: [],
     loading: false,
-    error: null
+    error: null,
+    searchQuery: '' // Shared between Navbar and Dashboard
   }),
 
   actions: {
@@ -26,7 +27,7 @@ export const useUsersStore = defineStore('users', {
         this.loading = false
       }
     },
-
+           // Add New User, I simulate it locally since DummyJSON does not support adding users.    Create in CRUD
     async addUser(userData) {
       this.error = null
       try {
@@ -39,7 +40,7 @@ export const useUsersStore = defineStore('users', {
         return { success: false }
       }
     },
-
+// EDIT USER.  Update in CRUD
     async updateUser(id, userData) {
       this.error = null
       const numId = Number(id)
